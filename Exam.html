@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Exam Review</title>
+ <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>Final Exam Review: Chapters 1 to 8</h1>
+      <nav>
+        <a href="index.html">Chapter 1</a>
+        <a href="chapter2.html">Chapter 2</a>
+        <a href="chapter3.html">Chapter 3</a>
+        <a href="chapter4.html">Chapter 4</a>
+        <a href="chapter6.html">Chapter 6</a>
+        <a href="chapter7.html">Chapter 7</a>
+        <a href="chapter8.html">Chapter 8</a>
+      </nav>
+    </header>
+
+    <main>
+      <div class="progress-container">
+        <h2>Your Progress</h2>
+        <div class="progress-bar">
+          <div class="progress-fill" id="progressFill"></div>
+        </div>
+        <div class="progress-text">Answered: <span id="progressText">0</span> of 20 questions</div>
+      </div>
+      
+      <div class="chapter-grid">
+        <!-- Chapter 1 -->
+        <section>
+          <h2>Chapter 1: HTTP Status Codes</h2>
+          
+          <div class="question-card">
+            <h3>Define these status codes:</h3>
+            <p>200 OK, 404 Not Found, 500 Internal Server Error</p>
+            <button class="btn btn-show" onclick="toggleAnswer('answer1')">Show Answer</button>
+            <div class="answer-area" id="answer1">
+              <p><strong>200 OK:</strong> The request has succeeded</p>
+              <p><strong>404 Not Found:</strong> The server cannot find the requested resource</p>
+              <p><strong>500 Internal Server Error:</strong> The server encountered an unexpected condition</p>
+            </div>
+          </div>
+          
+          <div class="question-card">
+            <h3>Multiple Choice Question</h3>
+            <p>Which status code indicates a permanent redirect?</p>
+            <ul class="mcq-options">
+              <li onclick="selectOption(this)">302 Found</li>
+              <li onclick="selectOption(this)">301 Moved Permanently</li>
+              <li onclick="selectOption(this)">307 Temporary Redirect</li>
+              <li onclick="selectOption(this)">304 Not Modified</li>
+            </ul>
+            <button class="btn btn-check" onclick="checkAnswer(this, 1)">Check Answer</button>
+            <div class="feedback" id="feedback1"></div>
+          </div>
+        </section>
+        
+        <!-- Chapter 2 -->
+        <section>
+          <h2>Chapter 2: Semantic HTML</h2>
+          
+          <div class="question-card">
+            <h3>Compare & Contrast</h3>
+            <p>What's the difference between &lt;article&gt; and &lt;section&gt; elements?</p>
+            <button class="btn btn-show" onclick="toggleAnswer('answer2')">Show Answer</button>
+            <div class="answer-area" id="answer2">
+              <p><strong>&lt;article&gt;:</strong> Represents a self-contained composition that could be distributed/reused independently</p>
+              <p><strong>&lt;section&gt;:</strong> Represents a generic standalone section of content</p>
+              <p><strong>Key difference:</strong> Articles are for standalone content, while sections are for grouping thematically related content.</p>
+            </div>
+          </div>
+          
+          <div class="question-card">
+            <h3>Multiple Choice Question</h3>
+            <p>Which element is most appropriate for website navigation?</p>
+            <ul class="mcq-options">
+              <li onclick="selectOption(this)">&lt;div id="nav"&gt;</li>
+              <li onclick="selectOption(this)">&lt;menu&gt;</li>
+              <li onclick="selectOption(this)">&lt;nav&gt;</li>
+              <li onclick="selectOption(this)">&lt;ul class="navigation"&gt;</li>
+            </ul>
+            <button class="btn btn-check" onclick="checkAnswer(this, 2)">Check Answer</button>
+            <div class="feedback" id="feedback2"></div>
+          </div>
+        </section>
+        
+        <!-- Chapter 3 -->
+        <section>
+          <h2>Chapter 3: CSS Basics</h2>
+          
+          <div class="question-card">
+            <h3>Define CSS Box Model</h3>
+            <p>Explain the components of the CSS Box Model.</p>
+            <button class="btn btn-show" onclick="toggleAnswer('answer3')">Show Answer</button>
+            <div class="answer-area" id="answer3">
+              <p>The CSS Box Model consists of:</p>
+              <ol>
+                <li><strong>Content:</strong> The actual content of the box</li>
+                <li><strong>Padding:</strong> Clears an area around the content</li>
+                <li><strong>Border:</strong> A border surrounding the padding</li>
+                <li><strong>Margin:</strong> Clears an area outside the border</li>
+              </ol>
+            </div>
+          </div>
+          
+          <div class="question-card">
+            <h3>Multiple Choice Question</h3>
+            <p>Which property is used to change the background color?</p>
+            <ul class="mcq-options">
+              <li onclick="selectOption(this)">color</li>
+              <li onclick="selectOption(this)">bgcolor</li>
+              <li onclick="selectOption(this)">background-color</li>
+              <li onclick="selectOption(this)">background</li>
+            </ul>
+            <button class="btn btn-check" onclick="checkAnswer(this, 3)">Check Answer</button>
+            <div class="feedback" id="feedback3"></div>
+          </div>
+        </section>
+        
+        <!-- Chapter 4 -->
+        <section>
+          <h2>Chapter 4: JavaScript Basics</h2>
+          
+          <div class="question-card">
+            <h3>Compare & Contrast</h3>
+            <p>What are the differences between let, const, and var?</p>
+            <button class="btn btn-show" onclick="toggleAnswer('answer4')">Show Answer</button>
+            <div class="answer-area" id="answer4">
+              <p><strong>var:</strong> Function-scoped, hoisted, can be redeclared</p>
+              <p><strong>let:</strong> Block-scoped, not hoisted, cannot be redeclared in same scope</p>
+              <p><strong>const:</strong> Block-scoped, cannot be reassigned, must be initialized</p>
+            </div>
+          </div>
+          
+          <div class="question-card">
+            <h3>Multiple Choice Question</h3>
+            <p>Which method is used to select an element by its ID?</p>
+            <ul class="mcq-options">
+              <li onclick="selectOption(this)">document.querySelector()</li>
+              <li onclick="selectOption(this)">document.getElementById()</li>
+              <li onclick="selectOption(this)">document.getElementsByClassName()</li>
+              <li onclick="selectOption(this)">document.querySelectorAll()</li>
+            </ul>
+            <button class="btn btn-check" onclick="checkAnswer(this, 4)">Check Answer</button>
+            <div class="feedback" id="feedback4"></div>
+          </div>
+        </section>
+        
+        <!-- Chapter 6 -->
+        <section>
+          <h2>Chapter 6: Server-Side Programming</h2>
+          
+          <div class="question-card">
+            <h3>Define Request-Response Cycle</h3>
+            <p>Outline the steps in the HTTP request-response cycle.</p>
+            <button class="btn btn-show" onclick="toggleAnswer('answer5')">Show Answer</button>
+            <div class="answer-area" id="answer5">
+              <ol>
+                <li>Client sends HTTP request to server</li>
+                <li>Server processes the request</li>
+                <li>Server accesses database if needed</li>
+                <li>Server prepares HTTP response</li>
+                <li>Server sends response back to client</li>
+                <li>Client processes the response</li>
+              </ol>
+            </div>
+          </div>
+          
+          <div class="question-card">
+            <h3>Multiple Choice Question</h3>
+            <p>Which Express method is used to handle GET requests?</p>
+            <ul class="mcq-options">
+              <li onclick="selectOption(this)">app.put()</li>
+              <li onclick="selectOption(this)">app.post()</li>
+              <li onclick="selectOption(this)">app.get()</li>
+              <li onclick="selectOption(this)">app.use()</li>
+            </ul>
+            <button class="btn btn-check" onclick="checkAnswer(this, 5)">Check Answer</button>
+            <div class="feedback" id="feedback5"></div>
+          </div>
+        </section>
+        
+        <!-- Chapter 7 -->
+        <section>
+          <h2>Chapter 7: Database Connectivity</h2>
+          
+          <div class="question-card">
+            <h3>Compare & Contrast</h3>
+            <p>What are the differences between SQL and NoSQL databases?</p>
+            <button class="btn btn-show" onclick="toggleAnswer('answer6')">Show Answer</button>
+            <div class="answer-area" id="answer6">
+              <p><strong>SQL Databases:</strong> 
+                <br>- Structured schema
+                <br>- Table-based
+                <br>- Vertical scaling
+                <br>- ACID compliant
+                <br>Examples: MySQL, PostgreSQL</p>
+              <p><strong>NoSQL Databases:</strong>
+                <br>- Flexible schema
+                <br>- Document, key-value, graph based
+                <br>- Horizontal scaling
+                <br>- BASE model
+                <br>Examples: MongoDB, Cassandra</p>
+            </div>
+          </div>
+          
+          <div class="question-card">
+            <h3>Multiple Choice Question</h3>
+            <p>Which of these is a NoSQL database?</p>
+            <ul class="mcq-options">
+              <li onclick="selectOption(this)">MySQL</li>
+              <li onclick="selectOption(this)">PostgreSQL</li>
+              <li onclick="selectOption(this)">MongoDB</li>
+              <li onclick="selectOption(this)">SQLite</li>
+            </ul>
+            <button class="btn btn-check" onclick="checkAnswer(this, 6)">Check Answer</button>
+            <div class="feedback" id="feedback6"></div>
+          </div>
+        </section>
+        
+        <!-- Chapter 8 -->
+        <section>
+          <h2>Chapter 8: Authentication & Security</h2>
+          
+          <div class="question-card">
+            <h3>Define Authentication vs Authorization</h3>
+            <p>Explain the difference between these concepts.</p>
+            <button class="btn btn-show" onclick="toggleAnswer('answer7')">Show Answer</button>
+            <div class="answer-area" id="answer7">
+              <p><strong>Authentication:</strong> Verifying who a user is (e.g., username/password)</p>
+              <p><strong>Authorization:</strong> Determining what a user can access (e.g., admin privileges)</p>
+              <p><strong>Key difference:</strong> Authentication is about identity, authorization is about permissions.</p>
+            </div>
+          </div>
+          
+          <div class="question-card">
+            <h3>Multiple Choice Question</h3>
+            <p>Which of these helps prevent SQL injection attacks?</p>
+            <ul class="mcq-options">
+              <li onclick="selectOption(this)">HTTPS</li>
+              <li onclick="selectOption(this)">Input validation</li>
+              <li onclick="selectOption(this)">Parameterized queries</li>
+              <li onclick="selectOption(this)">CORS</li>
+            </ul>
+            <button class="btn btn-check" onclick="checkAnswer(this, 7)">Check Answer</button>
+            <div class="feedback" id="feedback7"></div>
+          </div>
+        </section>
+      </div>
+      
+      <div style="text-align: center; margin: 30px 0;">
+        <button class="btn btn-reset" onclick="resetAll()">Reset All Answers</button>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Final Exam Review. Good luck with your exam!</p>
+    </footer>
+  </div>
+
+  <script>
+    // Track answered questions
+    let answeredQuestions = 0;
+    const totalQuestions = 14; // 7 MCQ + 7 definition questions
+    
+    // Function to toggle answer visibility
+    function toggleAnswer(id) {
+      const answer = document.getElementById(id);
+      answer.classList.toggle('show');
+      
+      // Update progress if this is the first time showing this answer
+      if (!answer.dataset.answered) {
+        answer.dataset.answered = "true";
+        updateProgress(1);
+      }
+    }
+    
+    // Function to select MCQ option
+    function selectOption(element) {
+      // Remove any existing selection in this question
+      const options = element.parentElement.querySelectorAll('li');
+      options.forEach(opt => {
+        opt.classList.remove('selected');
+      });
+      
+      // Select the clicked option
+      element.classList.add('selected');
+    }
+    
+    // Function to check MCQ answer
+    function checkAnswer(button, questionId) {
+      const options = button.previousElementSibling.querySelectorAll('li');
+      let selectedOption = null;
+      let correctIndex = -1;
+      
+      // Find selected option
+      options.forEach((opt, index) => {
+        if (opt.classList.contains('selected')) {
+          selectedOption = opt;
+        }
+      });
+      
+      if (!selectedOption) {
+        alert("Please select an answer!");
+        return;
+      }
+      
+      // Determine correct answers
+      switch(questionId) {
+        case 1: correctIndex = 1; break; // Chapter 1: 301
+        case 2: correctIndex = 2; break; // Chapter 2: nav
+        case 3: correctIndex = 2; break; // Chapter 3: background-color
+        case 4: correctIndex = 1; break; // Chapter 4: getElementById
+        case 5: correctIndex = 2; break; // Chapter 6: app.get()
+        case 6: correctIndex = 2; break; // Chapter 7: MongoDB
+        case 7: correctIndex = 2; break; // Chapter 8: Parameterized queries
+      }
+      
+      // Mark options
+      options.forEach((opt, index) => {
+        if (index === correctIndex) {
+          opt.classList.add('correct');
+        } else if (opt === selectedOption && index !== correctIndex) {
+          opt.classList.add('incorrect');
+        }
+      });
+      
+      // Show feedback
+      const feedback = document.getElementById(`feedback${questionId}`);
+      feedback.classList.remove('correct', 'incorrect');
+      
+      if (correctIndex === options.indexOf(selectedOption)) {
+        feedback.textContent = "Correct! Well done!";
+        feedback.classList.add('correct', 'show');
+        
+        // Update progress if this is the first time answering
+        if (!button.dataset.answered) {
+          button.dataset.answered = "true";
+          updateProgress(1);
+        }
+      } else {
+        feedback.textContent = "Incorrect. Please review the material.";
+        feedback.classList.add('incorrect', 'show');
+      }
+    }
+    
+    // Update progress function
+    function updateProgress(increment) {
+      answeredQuestions += increment;
+      const percentage = Math.min(100, (answeredQuestions / totalQuestions) * 100);
+      document.getElementById('progressFill').style.width = `${percentage}%`;
+      document.getElementById('progressText').textContent = answeredQuestions;
+    }
+    
+    // Reset all answers
+    function resetAll() {
+      // Reset all answer areas
+      const answerAreas = document.querySelectorAll('.answer-area');
+      answerAreas.forEach(area => {
+        area.classList.remove('show');
+        delete area.dataset.answered;
+      });
+      
+      // Reset MCQ options
+      const options = document.querySelectorAll('.mcq-options li');
+      options.forEach(opt => {
+        opt.classList.remove('selected', 'correct', 'incorrect');
+      });
+      
+      // Reset feedback
+      const feedbacks = document.querySelectorAll('.feedback');
+      feedbacks.forEach(fb => {
+        fb.classList.remove('show', 'correct', 'incorrect');
+      });
+      
+      // Reset buttons
+      const buttons = document.querySelectorAll('.btn-check');
+      buttons.forEach(btn => {
+        delete btn.dataset.answered;
+      });
+      
+      // Reset progress
+      answeredQuestions = 0;
+      document.getElementById('progressFill').style.width = '0%';
+      document.getElementById('progressText').textContent = '0';
+    }
+  </script>
+</body>
+</html>

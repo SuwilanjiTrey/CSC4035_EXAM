@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="chapter3.css">
+  <title>Chapter 3: CSS3 & Responsive Design</title>
+</head>
+<body>
+  <header>
+    <nav class="nav-links">
+      <a href="chapter2.html">Back to Chapter 2</a>
+      <a href="chapter4.html">Next: JavaScript Basics</a>
+    </nav>
+    <h1>Chapter 3: CSS3 & Responsive Web Design</h1>
+  </header>
+
+  <main>
+    <aside>
+      <h2>Objectives</h2>
+      <ul>
+        <li>Understand CSS3 fundamentals</li>
+        <li>Apply selectors and the box model</li>
+        <li>Use Flexbox and Grid for layout</li>
+        <li>Create responsive designs using media queries</li>
+      </ul>
+    </aside>
+
+    <section>
+      <h2>CSS Basics</h2>
+      <p>CSS (Cascading Style Sheets) controls the style and layout of web pages, separating design from content for cleaner code and better maintainability.</p>
+
+      <h3>CSS Selectors</h3>
+      <ul>
+        <li><strong>Element:</strong> <code>h1 { color: blue; }</code></li>
+        <li><strong>Class:</strong> <code>.highlight { background-color: red; }</code></li>
+        <li><strong>ID:</strong> <code>#main-title { font-size: 20px; }</code></li>
+        <li><strong>Group:</strong> <code>h2, p { margin: 10px; }</code></li>
+        <li><strong>Descendant:</strong> <code>nav ul li { list-style: none; }</code></li>
+      </ul>
+
+      <h3>The Box Model</h3>
+      <p>Each HTML element is a box made up of:</p>
+      <ul>
+        <li><strong>Content</strong> – The actual text or image</li>
+        <li><strong>Padding</strong> – Space around the content</li>
+        <li><strong>Border</strong> – Edge of the box</li>
+        <li><strong>Margin</strong> – Space outside the element</li>
+      </ul>
+
+      <h3>Flexbox Layout</h3>
+      <ul>
+        <li><code>display: flex;</code> – Enables flex container</li>
+        <li><code>justify-content:</code> – Horizontal alignment</li>
+        <li><code>align-items:</code> – Vertical alignment</li>
+      </ul>
+
+      <h3>Grid Layout</h3>
+      <ul>
+        <li><code>display: grid;</code> – Enables grid layout</li>
+        <li><code>grid-template-columns:</code> – Sets column layout</li>
+        <li><code>gap:</code> – Space between grid items</li>
+      </ul>
+
+      <h3>Responsive Web Design</h3>
+      <p>Responsive design ensures the page looks good on all devices using fluid layouts and media queries.</p>
+      <code>
+@media (max-width: 768px) {
+  body { background-color: lightblue; }
+}
+      </code>
+
+      <h3>CSS Animations & Transitions</h3>
+      <ul>
+        <li><code>transition:</code> – Smooth style changes</li>
+        <li><code>animation:</code> – Custom animation sequences</li>
+        <li><code>@keyframes:</code> – Defines animation steps</li>
+      </ul>
+
+      <h3>Reflection</h3>
+      <ol>
+        <li>What are the benefits of CSS Grid vs. Flexbox?</li>
+        <li>Why is the box model essential for layout?</li>
+        <li>How do media queries improve mobile experience?</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+ 
+	<a href="chapter4.html"> See chapter 4</a>
+	
+    <p>&copy; 2025 CSS Design Notes</p>
+  </footer>
+</body>
+</html>

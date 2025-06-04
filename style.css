@@ -1,0 +1,299 @@
+    :root {
+      --primary: #003366;
+      --secondary: #ffdd57;
+      --accent: #4a90e2;
+      --success: #2ecc71;
+      --error: #e74c3c;
+      --light: #f0f2f5;
+      --dark: #333;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+      color: #333;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.97);
+      border-radius: 15px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+    
+    header {
+      background: linear-gradient(135deg, var(--primary), #002147);
+      color: white;
+      padding: 25px 30px;
+      text-align: center;
+    }
+    
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+    
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    
+    nav a {
+      color: var(--secondary);
+      text-decoration: none;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: 30px;
+      background: rgba(0, 0, 0, 0.2);
+      transition: all 0.3s ease;
+    }
+    
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
+    
+    main {
+      padding: 30px;
+    }
+    
+    .chapter-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      margin-bottom: 30px;
+    }
+    
+    section {
+      background: white;
+      padding: 25px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+      border-left: 4px solid var(--accent);
+      transition: transform 0.3s ease;
+    }
+    
+    section:hover {
+      transform: translateY(-5px);
+    }
+    
+    section h2 {
+      margin-bottom: 20px;
+      color: var(--primary);
+      padding-bottom: 10px;
+      border-bottom: 2px solid var(--light);
+    }
+    
+    .question-card {
+      background: var(--light);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .question-card h3 {
+      margin-bottom: 15px;
+      color: var(--primary);
+    }
+    
+    .question-card p {
+      margin-bottom: 15px;
+    }
+    
+    .mcq-options {
+      list-style: none;
+      margin: 15px 0;
+    }
+    
+    .mcq-options li {
+      margin-bottom: 10px;
+      padding: 12px;
+      background: white;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      border: 1px solid #ddd;
+    }
+    
+    .mcq-options li:hover {
+      background: #eef5ff;
+      border-color: var(--accent);
+    }
+    
+    .mcq-options li.selected {
+      background: #e1edff;
+      border-color: var(--accent);
+      font-weight: bold;
+    }
+    
+    .mcq-options li.correct {
+      background: #e6f7ee;
+      border-color: var(--success);
+    }
+    
+    .mcq-options li.incorrect {
+      background: #fce8e6;
+      border-color: var(--error);
+    }
+    
+    .btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      margin: 10px 5px;
+      box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+    }
+    
+    .btn:hover {
+      background: #3a7bc8;
+      transform: translateY(-2px);
+      box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
+    }
+    
+    .btn:active {
+      transform: translateY(1px);
+    }
+    
+    .btn-check {
+      background: var(--success);
+    }
+    
+    .btn-show {
+      background: var(--primary);
+    }
+    
+    .btn-reset {
+      background: var(--error);
+    }
+    
+    .answer-area {
+      background: white;
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      border: 1px solid #ddd;
+      display: none;
+    }
+    
+    .answer-area.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .feedback {
+      padding: 15px;
+      border-radius: 8px;
+      margin: 15px 0;
+      font-weight: 600;
+      display: none;
+    }
+    
+    .feedback.show {
+      display: block;
+      animation: fadeIn 0.5s ease;
+    }
+    
+    .feedback.correct {
+      background: #e6f7ee;
+      border: 1px solid var(--success);
+      color: var(--success);
+    }
+    
+    .feedback.incorrect {
+      background: #fce8e6;
+      border: 1px solid var(--error);
+      color: var(--error);
+    }
+    
+    .progress-container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin: 30px 0;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    }
+    
+    .progress-bar {
+      height: 20px;
+      background: #eee;
+      border-radius: 10px;
+      margin: 15px 0;
+      overflow: hidden;
+    }
+    
+    .progress-fill {
+      height: 100%;
+      background: var(--success);
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+    
+    .progress-text {
+      text-align: center;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    
+    footer {
+      padding: 25px;
+      background: var(--primary);
+      color: white;
+      text-align: center;
+      font-size: 1.1rem;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @media (max-width: 768px) {
+      .chapter-grid {
+        grid-template-columns: 1fr;
+      }
+      
+      * {
+      margin: -6px;
+      }
+      
+      
+      menu {
+      width: 50%;
+      padding-left: 0px;
+      }
+      
+      section {
+     
+      width: 75%;
+      }
+      
+      nav {
+        flex-direction: column;
+        align-items: center;
+      }
+      
+      nav a {
+        width: 100%;
+        text-align: center;
+      }
+    }

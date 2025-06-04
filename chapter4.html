@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chapter 4: JavaScript Fundamentals</title>
+  <link rel="stylesheet" href="chapter4.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <nav class="nav-links">
+        <a href="chapter3.html">Back to Chapter 3</a>
+        <a href="chapter6.html">Next: Server-side Programming</a>
+      </nav>
+      <h1>Chapter 4: JavaScript Fundamentals</h1>
+    </header>
+    
+    <div class="content-wrapper">
+      <aside>
+        <h2>Learning Objectives</h2>
+        <ul>
+          <li>Understand JavaScript variables and functions</li>
+          <li>Manipulate the DOM (Document Object Model)</li>
+          <li>Use control structures (conditions, loops)</li>
+          <li>Handle events and user interactions</li>
+          <li>Work with asynchronous operations</li>
+          <li>Apply modern JavaScript syntax</li>
+          <li>Debug JavaScript code effectively</li>
+        </ul>
+        
+        <h2>Key Concepts</h2>
+        <ul>
+          <li>Variables (var, let, const)</li>
+          <li>Data Types & Operators</li>
+          <li>Functions & Scope</li>
+          <li>DOM Selection & Manipulation</li>
+          <li>Event Listeners</li>
+          <li>Control Flow (if/else, loops)</li>
+          <li>Asynchronous JavaScript</li>
+        </ul>
+      </aside>
+      
+      <section>
+        <h2>What is JavaScript?</h2>
+        <p>JavaScript is a powerful scripting language that enables interactive web pages. It allows you to create dynamically updating content, control multimedia, animate images, and much more.</p>
+        
+        <div class="example-container">
+          <h3>JavaScript in Action</h3>
+          <p>Try this simple example that displays the current date and time:</p>
+          <div class="interactive-area">
+            <button id="datetimeBtn" class="btn">Show Current Date & Time</button>
+            <div id="datetimeOutput" class="output">Click the button to see the result</div>
+          </div>
+        </div>
+        
+        <h2>Variables & Data Types</h2>
+        <p>Variables are containers for storing data values. JavaScript has three ways to declare variables:</p>
+        
+        <div class="var-comparison">
+          <div class="var-card const">
+            <h4>const</h4>
+            <p>Block-scoped, cannot be reassigned</p>
+            <pre><code>const PI = 3.14159;
+const API_KEY = 'abc123';</code></pre>
+            <p>Use for values that shouldn't change</p>
+          </div>
+          
+          <div class="var-card let">
+            <h4>let</h4>
+            <p>Block-scoped, can be reassigned</p>
+            <pre><code>let counter = 0;
+counter = 1; // Valid</code></pre>
+            <p>Modern replacement for var</p>
+          </div>
+          
+          <div class="var-card var">
+            <h4>var</h4>
+            <p>Function-scoped, avoid in modern JS</p>
+            <pre><code>var oldVariable = "Avoid";
+oldVariable = "Not recommended";</code></pre>
+            <p>Legacy, prone to scoping issues</p>
+          </div>
+        </div>
+        
+        <h3>Data Types</h3>
+        <pre><code>// Primitive Types
+let name = "Alice";      // String
+let age = 30;            // Number
+let isStudent = true;    // Boolean
+let nothing = null;      // Null
+let notDefined;          // Undefined
+let id = Symbol('id');   // Symbol
+
+// Reference Types
+let fruits = ["Apple", "Banana"];  // Array
+let person = {                     // Object
+  name: "Bob",
+  email: "bob@example.com"
+};</code></pre>
+        
+        <h2>Functions</h2>
+        <p>Functions are blocks of code designed to perform specific tasks. They help avoid code repetition and make programs more modular.</p>
+        
+        <h3>Function Declaration</h3>
+        <pre><code>function greet(name) {
+  return `Hello, ${name}!`;
+}</code></pre>
+        
+        <h3>Arrow Function (ES6)</h3>
+        <pre><code>const add = (a, b) => a + b;</code></pre>
+        
+        <div class="example-container">
+          <h3>Try Functions</h3>
+          <div class="interactive-area">
+            <input type="number" id="num1" placeholder="Enter number" value="5">
+            <input type="number" id="num2" placeholder="Enter number" value="3">
+            <button id="addBtn" class="btn">Add Numbers</button>
+            <div id="addResult" class="output">Result will appear here</div>
+          </div>
+        </div>
+        
+        <h2>DOM Manipulation</h2>
+        <p>The Document Object Model (DOM) is a programming interface for HTML. It represents the page so that programs can change the document structure, style, and content.</p>
+        
+        <div class="dom-example">
+          <div class="dom-box">
+            <h4>Selecting Elements</h4>
+            <pre><code>// By ID
+const el = document.getElementById('id');
+
+// By CSS selector
+const el = document.querySelector('.class');</code></pre>
+            <div class="dom-element" id="selectDemo">
+              Element to select
+            </div>
+            <button id="selectBtn" class="btn">Select & Style</button>
+          </div>
+          
+          <div class="dom-box">
+            <h4>Modifying Content</h4>
+            <pre><code>element.textContent = 'New text';
+element.innerHTML = '&lt;strong&gt;HTML&lt;/strong&gt; content';</code></pre>
+            <div class="dom-element" id="contentDemo">
+              Original Content
+            </div>
+            <button id="contentBtn" class="btn">Change Content</button>
+          </div>
+          
+          <div class="dom-box">
+            <h4>Creating Elements</h4>
+            <pre><code>const newEl = document.createElement('div');
+newEl.textContent = 'New Element';
+parent.appendChild(newEl);</code></pre>
+            <div class="dom-element" id="createDemo">
+              Parent Element
+            </div>
+            <button id="createBtn" class="btn">Add New Element</button>
+          </div>
+        </div>
+        
+        <h2>Control Structures</h2>
+        <p>Control structures determine the flow of program execution based on conditions and loops.</p>
+        
+        <h3>Conditionals (if/else)</h3>
+        <pre><code>let score = 85;
+
+if (score >= 90) {
+  console.log("A Grade");
+} else if (score >= 80) {
+  console.log("B Grade");
+} else {
+  console.log("C Grade");
+}</code></pre>
+        
+        <h3>Loops (for, while)</h3>
+        <pre><code>// For loop
+for (let i = 0; i < 5; i++) {
+  console.log(i);
+}
+
+// While loop
+let count = 0;
+while (count < 5) {
+  console.log(count);
+  count++;
+}</code></pre>
+        
+        <div class="example-container">
+          <h3>Counter Example</h3>
+          <div class="interactive-area">
+            <div class="counter-display" id="counter">0</div>
+            <button id="incrementBtn" class="btn btn-success">Increment (+)</button>
+            <button id="decrementBtn" class="btn btn-danger">Decrement (-)</button>
+            <button id="resetBtn" class="btn">Reset</button>
+          </div>
+        </div>
+        
+        <h2>Event Handling</h2>
+        <p>JavaScript can respond to user interactions using events like <code>click</code>, <code>submit</code>, <code>keypress</code>, etc.</p>
+        
+        <pre><code>// Basic event listener
+document.getElementById('btn').addEventListener('click', () => {
+  alert('Button clicked!');
+});
+
+// Event object
+document.getElementById('inputField').addEventListener('input', (event) => {
+  console.log('Input value:', event.target.value);
+});</code></pre>
+        
+        <div class="example-container">
+          <h3>Interactive Form</h3>
+          <div class="interactive-area">
+            <input type="text" id="nameInput" placeholder="Enter your name">
+            <button id="greetBtn" class="btn">Greet Me</button>
+            <div id="greetOutput" class="output">Enter your name and click the button</div>
+          </div>
+        </div>
+        
+        <div class="reflection">
+          <h3>Reflection Questions</h3>
+          <ol>
+            <li>When should you use <code>let</code> vs <code>const</code>?</li>
+            <li>How does DOM manipulation enhance user experience on websites?</li>
+            <li>What are the advantages of arrow functions over traditional function declarations?</li>
+            <li>Why is event handling essential in modern web development?</li>
+            <li>How would you explain the concept of asynchronous JavaScript to a beginner?</li>
+          </ol>
+        </div>
+      </section>
+    </div>
+    
+    <footer>
+
+	
+	<a href="chapter6.html"> See chapter 6</a>
+	
+      <p>&copy; 2025 JavaScript Fundamentals | University of Zambia</p>
+    </footer>
+  </div>
+
+  <script>
+    // Date & Time Example
+    document.getElementById('datetimeBtn').addEventListener('click', () => {
+      const now = new Date();
+      document.getElementById('datetimeOutput').textContent = 
+        `Current Date & Time: ${now.toLocaleString()}`;
+    });
+    
+    // Function Example
+    document.getElementById('addBtn').addEventListener('click', () => {
+      const num1 = parseFloat(document.getElementById('num1').value) || 0;
+      const num2 = parseFloat(document.getElementById('num2').value) || 0;
+      const sum = num1 + num2;
+      document.getElementById('addResult').textContent = 
+        `${num1} + ${num2} = ${sum}`;
+    });
+    
+    // DOM Selection Example
+    document.getElementById('selectBtn').addEventListener('click', () => {
+      const element = document.getElementById('selectDemo');
+      element.style.backgroundColor = '#3498db';
+      element.style.color = 'white';
+      element.style.padding = '15px';
+      element.textContent = 'Element selected and styled!';
+    });
+    
+    // Content Modification Example
+    document.getElementById('contentBtn').addEventListener('click', () => {
+      const element = document.getElementById('contentDemo');
+      element.innerHTML = 'Content changed! <strong>HTML works too!</strong>';
+      element.style.backgroundColor = '#2ecc71';
+      element.style.color = 'white';
+    });
+    
+    // Element Creation Example
+    document.getElementById('createBtn').addEventListener('click', () => {
+      const parent = document.getElementById('createDemo');
+      const newElement = document.createElement('div');
+      newElement.textContent = 'New child element added!';
+      newElement.style.marginTop = '10px';
+      newElement.style.padding = '10px';
+      newElement.style.backgroundColor = '#e74c3c';
+      newElement.style.color = 'white';
+      newElement.style.borderRadius = '5px';
+      parent.appendChild(newElement);
+    });
+    
+    // Counter Example
+    let count = 0;
+    const counterElement = document.getElementById('counter');
+    
+    document.getElementById('incrementBtn').addEventListener('click', () => {
+      count++;
+      updateCounter();
+    });
+    
+    document.getElementById('decrementBtn').addEventListener('click', () => {
+      if (count > 0) count--;
+      updateCounter();
+    });
+    
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      count = 0;
+      updateCounter();
+    });
+    
+    function updateCounter() {
+      counterElement.textContent = count;
+      counterElement.style.color = count > 5 ? '#e74c3c' : '#3498db';
+      counterElement.style.fontSize = `${1.5 + (count * 0.1)}rem`;
+    }
+    
+    // Greeting Example
+    document.getElementById('greetBtn').addEventListener('click', () => {
+      const name = document.getElementById('nameInput').value || 'Guest';
+      document.getElementById('greetOutput').textContent = 
+        `Hello, ${name}! Welcome to JavaScript!`;
+      document.getElementById('greetOutput').style.backgroundColor = '#f39c12';
+      document.getElementById('greetOutput').style.color = 'white';
+    });
+    
+    // Real-time input example
+    document.getElementById('nameInput').addEventListener('input', (e) => {
+      const name = e.target.value;
+      if (name.length > 0) {
+        document.getElementById('greetBtn').textContent = `Greet ${name}`;
+      } else {
+        document.getElementById('greetBtn').textContent = 'Greet Me';
+      }
+    });
+  </script>
+</body>
+</html>

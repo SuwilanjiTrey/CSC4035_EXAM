@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="chapter8.css" />
+  <title>Chapter 8 - Authentication & Security</title>
+</head>
+
+<body>
+  <header>
+    <div class="links">
+      <a href="chapter7.html">Back to Chapter 7</a>
+      <a href="Exam.html">checkout the Exam</a>
+    </div>
+    <h1>Chapter 8: Authentication, Session Management & Security</h1>
+  </header>
+
+  <main>
+    <aside>
+      <div class="objectives">
+        <h3>Learning Objectives</h3>
+        <ul>
+          <li>Understand the difference between Authentication and Authorization</li>
+          <li>Set up session-based and token-based authentication</li>
+          <li>Hash passwords securely using bcrypt</li>
+          <li>Protect routes with middleware</li>
+          <li>Apply best security practices to web apps</li>
+        </ul>
+      </div>
+    </aside>
+
+    <section class="content">
+      <h3>Authentication vs Authorization</h3>
+      <p>
+        <strong>Authentication</strong> verifies the identity of a user (e.g., login).  
+        <strong>Authorization</strong> determines what the authenticated user is allowed to do (e.g., admin access).
+      </p>
+
+      <h3>Session-Based Authentication</h3>
+      <ul>
+        <li>Stores session data on the server</li>
+        <li>Client receives a session ID via cookies</li>
+        <li>Use <code>express-session</code> for setup</li>
+      </ul>
+
+      <h3>Token-Based Authentication (JWT)</h3>
+      <ul>
+        <li>Stateless – server doesn't store user session</li>
+        <li>Client receives a signed token</li>
+        <li>Each request includes the token in an Authorization header</li>
+      </ul>
+
+      <h3>Password Hashing with bcrypt</h3>
+      <ul>
+        <li>Never store plain passwords!</li>
+        <li>Use bcrypt to hash passwords during registration</li>
+        <li>Use bcrypt.compare() during login to verify</li>
+      </ul>
+
+      <h3>Route Protection with Middleware</h3>
+      <ul>
+        <li>Check for sessions or tokens before allowing access</li>
+        <li>Return 401 Unauthorized for unauthenticated users</li>
+      </ul>
+
+      <h3>Web Security Best Practices</h3>
+      <ul>
+        <li>Sanitize all user inputs</li>
+        <li>Use environment variables for secrets</li>
+        <li>Use HTTPS and secure cookies (HttpOnly, Secure, SameSite)</li>
+        <li>Prevent CSRF using tokens and proper cookie config</li>
+        <li>Use rate limiting to prevent brute-force attacks</li>
+      </ul>
+
+      <h3>Common Threats & Mitigations</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Threat</th>
+            <th>Mitigation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>XSS</td>
+            <td>Escape output, use Content-Security-Policy</td>
+          </tr>
+          <tr>
+            <td>CSRF</td>
+            <td>Use SameSite cookies and CSRF tokens</td>
+          </tr>
+          <tr>
+            <td>Session Hijacking</td>
+            <td>Secure cookies, regenerate session on login</td>
+          </tr>
+          <tr>
+            <td>Password Leaks</td>
+            <td>Hash passwords, use strong policies</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+    <div class="next">
+      <h2>Ready for Review?</h2>
+      <a href="Exam.html">Go to Final Review</a>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="chapter1.css">
+  <title>Chapter 1: HTTP & Status Codes</title>
+</head>
+<body>
+  <header>
+    <nav class="nav-links">
+      <a href="Exam.html">Back to Exam</a>
+      <a href="chapter2.html">Next: Semantic HTML</a>
+    </nav>
+    <h1>Chapter 1: HTTP Requests and Status Codes</h1>
+  </header>
+
+  <main>
+    <aside>
+      <h2>Objectives</h2>
+      <ul>
+        <li>Understand how HTTP works</li>
+        <li>Explore the request-response cycle</li>
+        <li>Learn the structure of HTTP requests and responses</li>
+        <li>Memorize common HTTP status codes</li>
+      </ul>
+    </aside>
+
+    <section>
+      <h2>How HTTP Works</h2>
+      <p>HTTP (Hypertext Transfer Protocol) is the foundation of communication on the web. It is a stateless protocol that enables clients (usually browsers) to communicate with servers.</p>
+
+      <h2>Request-Response Cycle</h2>
+      <p>When a user enters a URL, the browser sends an HTTP request to a server. The server processes the request and sends back an HTTP response.</p>
+      <ol>
+        <li><strong>Request:</strong> Sent by client (browser)</li>
+        <li><strong>Server:</strong> Receives request, processes it</li>
+        <li><strong>Response:</strong> Sent back by server to client</li>
+        <li><strong>Browser:</strong> Renders the content</li>
+      </ol>
+
+      <h2>HTTP Request Structure</h2>
+      <ul>
+        <li><strong>Request Line:</strong> Method (GET, POST), Path, HTTP Version</li>
+        <li><strong>Headers:</strong> Metadata (e.g. User-Agent, Content-Type)</li>
+        <li><strong>Body:</strong> Optional – used with POST, PUT</li>
+      </ul>
+
+      <h2>HTTP Response Structure</h2>
+      <ul>
+        <li><strong>Status Line:</strong> HTTP Version, Status Code, Status Text</li>
+        <li><strong>Headers:</strong> Metadata (e.g. Content-Type, Set-Cookie)</li>
+        <li><strong>Body:</strong> HTML, JSON, or file content</li>
+      </ul>
+
+      <h2>Common HTTP Status Codes</h2>
+      <table>
+        <thead>
+          <tr><th>Code</th><th>Meaning</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>200</td><td>OK – Successful request</td></tr>
+          <tr><td>201</td><td>Created – New resource created</td></tr>
+          <tr><td>204</td><td>No Content – Successful, no response body</td></tr>
+          <tr><td>301</td><td>Moved Permanently – Resource has new URL</td></tr>
+          <tr><td>302</td><td>Found – Temporary redirect</td></tr>
+          <tr><td>400</td><td>Bad Request – Invalid input</td></tr>
+          <tr><td>401</td><td>Unauthorized – Auth required</td></tr>
+          <tr><td>404</td><td>Not Found – Resource doesn't exist</td></tr>
+          <tr><td>429</td><td>Too Many Requests – Rate limit exceeded</td></tr>
+          <tr><td>500</td><td>Internal Server Error – Server fault</td></tr>
+          <tr><td>502</td><td>Bad Gateway – Invalid response from upstream</td></tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <footer>
+  	
+	<a href="chapter2.html"> See chapter 2</a>
+	
+	
+    <p>&copy; 2025 Web Development Notes</p>
+  </footer>
+</body>
+</html>

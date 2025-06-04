@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chapter 7</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f5f7fa;
+      color: #333;
+      padding: 20px;
+      margin: 0;
+    }
+    
+    header {
+      background-color: #003d66;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+    
+    .links a {
+      color: #ffd700;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      text-align: center;
+    }
+    
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin-top: 20px;
+    }
+    
+    aside {
+      background: #e6f0ff;
+      padding: 15px;
+      border-radius: 8px;
+    }
+    
+    section.content {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #ccc;
+    }
+    
+    ul {
+      margin-left: 20px;
+      padding-left: 10px;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 4px;
+      display: block;
+      margin: 0 auto;
+    }
+    
+    pre {
+      background: #2c3e50;
+      color: white;
+      padding: 15px;
+      border-radius: 8px;
+      overflow-x: auto;
+      font-size: 14px;
+      line-height: 1.4;
+      margin: 15px 0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    
+    code {
+      font-family: 'Courier New', monospace;
+    }
+    
+    footer {
+      margin-top: 30px;
+      background: #003d66;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+    
+    footer a {
+      color: #00ffcc;
+      text-decoration: none;
+      display: block;
+      padding: 10px;
+      background: rgba(0, 0, 0, 0.2);
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+    
+    /* Media query for tablets and larger */
+    @media (min-width: 768px) {
+      .links {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      
+      main {
+        flex-direction: row;
+      }
+      
+      aside {
+        flex: 1;
+      }
+      
+      section.content {
+        flex: 3;
+      }
+      
+      footer a {
+        display: inline-block;
+        margin: 0 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="links">
+      <a href="chapter6.html">Back to Previous Chapter</a>
+      <a href="semantic.html">Back to Home</a>
+    </div>
+    <h1>Connecting Web Applications to a Database</h1>
+  </header>
+
+  <main>
+    <aside>
+      <div class="objectives">
+        <h3>Objectives for this Module</h3>
+        <ul>
+          <li>Understand the role of databases in applications</li>
+          <li>Differentiate between SQL and NoSQL</li>
+          <li>Set up and connect a Node.js app to a database</li>
+          <li>Perform CRUD from Express routes</li>
+          <li>Understand security and best practices for usage</li>
+        </ul>
+      </div>
+    </aside>
+
+    <section class="content">
+      <h3>What is a Database?</h3>
+      <p>A system to store, manage, and retrieve structured or unstructured information.</p>
+
+      <h3>Two Main Types of Databases:</h3>
+      <ul>
+        <li>SQL – Structured Query Language (Relational)
+          <ul>
+            <li>MySQL</li>
+            <li>PostgreSQL</li>
+          </ul>
+        </li>
+        <li>NoSQL – Non-relational / Document-based
+          <ul>
+            <li>MongoDB</li>
+            <li>CouchDB</li>
+          </ul>
+        </li>
+      </ul>
+
+      <h3>Table Showing the Differences</h3>
+      <div class="image">
+        <img src="sql-table.png" alt="SQL vs NoSQL Table">
+      </div>
+
+      <h3>Choosing the Right Database</h3>
+      <h4>Choose SQL if:</h4>
+      <ul>
+        <li>Data is structured and relational</li>
+        <li>ACID compliance is required</li>
+      </ul>
+
+      <h4>Choose NoSQL if:</h4>
+      <ul>
+        <li>Data schema is flexible</li>
+        <li>Scalability and speed are prioritized</li>
+      </ul>
+      
+      <h3>Setting Up MongoDB with Node.js/Express </h3>
+      <div class="nosql">
+      <pre><code>const mongoose = require('mongoose');
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI || 'mongodb://localhost:27017/mydb', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
+.then(() => console.log('MongoDB connected'))
+.catch(err => console.error(err));
+
+// Define Schema
+const userSchema = new mongoose.Schema({
+  name: String,
+  email: String,
+});
+
+// Model
+const User = mongoose.model('User', userSchema);
+
+// Example Create
+async function createUser(name, email) {
+  const user = new User({ name, email });
+  await user.save();
+  console.log('User saved:', user);
+}</code></pre>
+      </div>
+      
+      <h3>Setting Up MySQL with Node.js/Express</h3>
+      <pre><code>const mysql = require('mysql2/promise');
+
+// Create DB connection
+async function connectDB() {
+  const connection = await mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: 'yourpassword',
+    database: 'mydb',
+  });
+  return connection;
+}
+
+// Example query
+async function getUsers() {
+  const conn = await connectDB();
+  const [rows] = await conn.execute('SELECT * FROM users');
+  console.log(rows);
+}</code></pre>
+
+      <h3>Security and Best Practices</h3>
+      <ul>
+        <li>Sanitize inputs</li>
+        <li>Use environment variables for credentials</li>
+        <li>Validate data</li>
+        <li>Use try-catch for error handling</li>
+        <li>Use indexing and backup strategies</li>
+        <li>Use connection pools for scalability</li>
+      </ul>
+
+      <h3>Key Concepts to Memorize</h3>
+      <ul>
+        <li>SQL vs NoSQL differences</li>
+        <li>Steps to connect to each database type</li>
+        <li>Parameterized query syntax</li>
+        <li>Mongoose model usage</li>
+        <li>Security best practices</li>
+      </ul>
+
+      <h3>Common Exam Pitfalls</h3>
+      <ul>
+        <li>Forgetting to connect Mongoose</li>
+        <li>Hardcoding DB credentials</li>
+        <li>Missing `await` in async DB operations</li>
+        <li>Mixing up query placeholder syntax</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <a href="chapter8.html">See Chapter 8</a>
+  </footer>
+</body>
+</html>

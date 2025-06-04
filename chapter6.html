@@ -1,0 +1,127 @@
+<!DOCType html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" type="text/css" href="chapter6.css">
+	<title>Chapter 6</title>
+<head>
+<body>
+
+<header> 
+ <div class="links">
+      <a href="chapter4.html">chapter 4</a>
+      <a href="Exam.html">Back to Home</a>
+    </div>
+	<h1>Chapter 6: Server side programing</h1>
+
+	<h2>content and summary</h2> 
+</header>
+
+<main>
+	<aside>
+		<div class="objectives">
+		<h3>By the end of this module one should understand:</h3>
+		<ul>
+			<li>the role of server side programming in web applications</li>
+			<li>set up and cnfigure basic node.js + Express project</li>
+			<li>build and handle routes using the (GET/POST) methods</li>
+			<li>use middleware for tasks like json parsing or logging </li>
+		</ul>
+		</div>  
+	</aside>
+	
+	<section>
+		<h2>Client vs Server: A recap </h2>
+		
+		<article>
+			<h3>A question could arise, "what is the difference between a client and a server?". what would your answer be?</h3>
+			<p>well, the difference is that a client <code>runs in the browser</code> and renders ui</p>
+			<p>where as a Server <code>runs on the web server</code> rendering business logic, handling database operations, authentication e.t.c</p>
+		</article>
+		
+		<article>
+		<h3>how do they communicate?</h3>
+		<ul>
+			<li>they use http request/response cycle</li>
+			<li>this is called statelessness where each HTTP is independent</li>
+			<li>maintaining state requires sessions or tokens</li>
+		</ul>
+		
+		<h3>Understanding Server-side programming</h3>
+		<ul>
+			<li>runs on the server and not in the browser</li>
+			<li>handles business logic, database, sessions, files storage and authentication</li>
+			<li>sends dynamic content (HTML,JSON) back to the client</li>
+		</ul>
+		
+	<div class="server-side-section">
+        <h3>How to make a simple Express server skeleton</h3>
+	<pre><code>
+		const express = require('express');
+		const app = express();
+		const PORT = 3000;
+
+		// Use middleware
+		app.use(express.json());
+
+		// Simple route
+		app.get('/', (req, res) => {
+		  console.log("Hello guys... I'm the server");
+		  res.send("Hello... I'm the server");
+		});
+
+		app.listen(PORT, () => {
+		  console.log(`Server running on port ${PORT}`);
+		});
+	</code></pre>
+	
+	<h3>to add static files (images, fonts e.t.c..) use the syntax: </h3>
+	<pre><code>
+		app.use(express.static('public'));
+	</code></pre>
+	
+	
+	
+	<h3>handling a post method: </h3>
+	<pre><code>
+		app.post('/data', (req,res)=>{
+		const userInput = req.body;
+		res.send(`recieved: ${JSON.stringify(userInput)} from the browser`);
+		});
+	</code></pre>
+      </div>
+	
+		
+		
+		
+	<div class="review-questions">
+	
+	</div>
+	</section>
+	
+</main>
+
+<footer>
+	<div class="next">
+	<h2>are you satisfied with this modules content?? </h2> 
+	<a href="chapter7.html"> See chapter 7</a>
+	</div>
+</footer>
+</body>
+
+</html>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
